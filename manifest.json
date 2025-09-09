@@ -1,0 +1,27 @@
+{
+  "manifest_version": 3,
+  "name": "出勤日曆",
+  "version": "1.0.0",
+  "description": "智能出勤日曆助手，提供月曆視覺化檢視打卡記錄、假期狀態、工作時數統計，讓出勤管理更直觀便利",
+  "icons": {
+    "16": "icons/icon16.png",
+    "48": "icons/icon48.png",
+    "128": "icons/icon128.png"
+  },
+  "permissions": [
+    "storage",
+    "tabs"
+  ],
+  "action": {
+    "default_popup": "popup.html",
+    "default_title": "出勤日曆"
+  },
+  "options_page": "options.html",
+  "content_scripts": [
+    {
+      "matches": ["https://cloud.nueip.com/*"],
+      "js": ["content.js"],
+      "run_at": "document_idle"
+    }
+  ]
+}
