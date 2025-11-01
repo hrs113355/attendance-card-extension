@@ -219,19 +219,10 @@ document.addEventListener('DOMContentLoaded', async function() {
 
     function initializeCalendar() {
         const now = new Date();
-        
-        // 自動判斷月份：15號前用上月，16號後用下月
-        const day = now.getDate();
-        const targetDate = new Date(now);
-        
-        if (day <= 15) {
-            targetDate.setMonth(targetDate.getMonth() - 1);
-        } else {
-            targetDate.setMonth(targetDate.getMonth() + 1);
-        }
-        
-        currentYear = targetDate.getFullYear();
-        currentMonth = targetDate.getMonth();
+
+        // 打開當日所在月份（使用本地時區）
+        currentYear = now.getFullYear();
+        currentMonth = now.getMonth();
 
         loadAttendanceDataAndRender();
     }
